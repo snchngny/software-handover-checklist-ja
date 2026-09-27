@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ソフトウェア引継ぎチェックリスト（無料）｜snchngny</title>
+  <meta name="description" content="小規模ソフトウェアの引継ぎで確認する17項目。目的、受入条件、日常運用、障害対応、取消手順を無料で確認できます。">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://snchngny.github.io/software-handover-checklist-ja/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="ソフトウェア引継ぎチェックリスト（無料）">
+  <meta property="og:description" content="担当者が変わっても運用を止めないための17項目。Markdown版も無料で利用できます。">
+  <meta property="og:url" content="https://snchngny.github.io/software-handover-checklist-ja/">
+  <meta name="twitter:card" content="summary">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172033;
+      --muted: #526070;
+      --line: #d7dee8;
+      --paper: #ffffff;
+      --soft: #f3f7fb;
+      --accent: #1856a5;
+      --accent-dark: #0d3d7b;
+      --focus: #ffbf47;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--soft);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-underline-offset: 0.18em; }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .skip {
+      position: absolute;
+      left: 1rem;
+      top: -5rem;
+      padding: .65rem 1rem;
+      background: var(--paper);
+      z-index: 10;
+    }
+    .skip:focus { top: 1rem; }
+    .hero {
+      background: linear-gradient(150deg, #eaf3ff 0%, #ffffff 72%);
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap { width: min(760px, calc(100% - 2rem)); margin: 0 auto; }
+    .hero .wrap { padding: 4.5rem 0 3.5rem; }
+    .eyebrow { margin: 0 0 .7rem; color: var(--accent-dark); font-weight: 700; letter-spacing: .04em; }
+    h1 { margin: 0; font-size: clamp(2rem, 7vw, 3.4rem); line-height: 1.18; letter-spacing: -.025em; }
+    .lead { max-width: 42rem; margin: 1.3rem 0 0; color: var(--muted); font-size: 1.15rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.8rem; }
+    .button {
+      display: inline-block;
+      padding: .75rem 1rem;
+      border: 2px solid var(--accent);
+      border-radius: .55rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .button.primary { color: #fff; background: var(--accent); }
+    .button.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .button.secondary { color: var(--accent-dark); background: var(--paper); }
+    main { padding: 2.5rem 0 4rem; }
+    section { margin-top: 2.5rem; }
+    h2 { margin: 0 0 .9rem; font-size: 1.55rem; line-height: 1.35; }
+    h3 { margin: 0; font-size: 1.12rem; }
+    .meta, .note { color: var(--muted); }
+    .card {
+      margin-top: 1rem;
+      padding: 1.15rem 1.25rem;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: .75rem;
+    }
+    .checklist { margin: .65rem 0 0; padding: 0; list-style: none; }
+    .checklist li { position: relative; padding: .35rem 0 .35rem 1.9rem; }
+    .checklist li::before {
+      content: "□";
+      position: absolute;
+      left: 0;
+      top: .28rem;
+      color: var(--accent-dark);
+      font-size: 1.25rem;
+      line-height: 1;
+    }
+    .paid {
+      padding: 1.5rem;
+      border-left: .4rem solid var(--accent);
+      background: #eef5ff;
+      border-radius: .25rem .75rem .75rem .25rem;
+    }
+    footer { padding: 2rem 0 3rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .95rem; }
+    @media (max-width: 520px) {
+      .hero .wrap { padding: 3rem 0 2.5rem; }
+      .actions { display: grid; }
+      .button { text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">無料・Markdown対応</p>
+      <h1>小規模ソフトウェアの<br>引継ぎチェックリスト</h1>
+      <p class="lead">担当者が変わっても、確認済みの動作、日常の利用手順、困った時の戻し方を追えるようにする17項目です。</p>
+      <div class="actions">
+        <a class="button primary" href="https://github.com/snchngny/software-handover-checklist-ja/blob/main/CHECKLIST.md">Markdown版を無料で使う</a>
+        <a class="button secondary" href="#checklist">このページで確認する</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <section aria-labelledby="usage-title">
+      <h2 id="usage-title">使い方</h2>
+      <ol>
+        <li>対象ソフトウェアごとにチェックリストを複製</li>
+        <li>引継ぎ元と引継ぎ先が一緒に確認</li>
+        <li>分からない項目は埋めずに「未確認」と記録</li>
+        <li>秘密値は書かず、正規の保管場所と取得手順だけを記録</li>
+      </ol>
+      <p class="note">確認日、対象名・version・環境、引継ぎ元、引継ぎ先も最初に記録してください。</p>
+    </section>
+
+    <section id="checklist" aria-labelledby="checklist-title">
+      <h2 id="checklist-title">17項目のチェックリスト</h2>
+
+      <article class="card">
+        <h3>目的と範囲</h3>
+        <ul class="checklist">
+          <li>誰が何のために使うソフトウェアか説明できる</li>
+          <li>対象機能と対象外を区別している</li>
+          <li>正本となるrepository、文書、データの場所が分かる</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>受入条件と根拠</h3>
+        <ul class="checklist">
+          <li>完了条件を観察可能な結果で書いている</li>
+          <li>各条件の確認方法、確認日、結果を残している</li>
+          <li>未確認事項を成功扱いしていない</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>日常運用</h3>
+        <ul class="checklist">
+          <li>起動、停止、更新、定期処理の手順がある</li>
+          <li>入力、出力、保存先、実行者が分かる</li>
+          <li>APIキーやパスワードの実値を書かず、正規の取得方法を示している</li>
+          <li>ログと監視結果の確認場所が分かる</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>困った時</h3>
+        <ul class="checklist">
+          <li>よくある失敗と確認順がある</li>
+          <li>変更を取り消す条件と手順がある</li>
+          <li>復旧できない時の連絡先と判断者が分かる</li>
+          <li>本番へ影響する操作と影響しない確認を区別している</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>引継ぎ完了</h3>
+        <ul class="checklist">
+          <li>引継ぎ先が手順を見て主要操作を再現した</li>
+          <li>不足、例外、期限付き対応を一覧にした</li>
+          <li>文書の更新責任者と次回確認日を決めた</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="paid" aria-labelledby="paid-title">
+      <h2 id="paid-title">一覧だけでは引継ぎを完了できない場合</h2>
+      <p>受入条件表、確認根拠、利用手順、障害対応、取消手順を実際に記入できる日本語Markdownテンプレート5点と、架空の記入例を用意しています。</p>
+      <p><a class="button primary" href="https://yukilec.gumroad.com/l/software-handover-docs-ja?utm_source=github_pages&amp;utm_medium=organic&amp;utm_campaign=handover-checklist">有料テンプレート5点を見る（2,980円）</a></p>
+      <p class="note">無料版だけでも利用できます。有料版は編集用テンプレートと記入例が必要な方向けです。</p>
+    </section>
+
+    <section aria-labelledby="license-title">
+      <h2 id="license-title">利用条件</h2>
+      <p>無料チェックリストは<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>です。原作者名 <code>snchngny</code> と<a href="https://github.com/snchngny/software-handover-checklist-ja">元repository</a>へのリンクを表示すれば、利用・改変できます。</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>作成: <a href="https://github.com/snchngny">snchngny</a>｜更新: 2026-09-27</p>
+    </div>
+  </footer>
+</body>
+</html>
