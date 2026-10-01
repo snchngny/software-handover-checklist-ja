@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ソフトウェア引継ぎチェックリスト（無料）｜snchngny</title>
-  <meta name="description" content="小規模ソフトウェアの引継ぎで確認する17項目。目的、受入条件、日常運用、障害対応、取消手順を無料で確認できます。">
+  <meta name="description" content="小規模開発会社向け。社員退職・外注離脱前に顧客案件の引継ぎを確認する17項目を無料で使えます。">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://snchngny.github.io/software-handover-checklist-ja/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:title" content="ソフトウェア引継ぎチェックリスト（無料）">
-  <meta property="og:description" content="担当者が変わっても運用を止めないための17項目。Markdown版も無料で利用できます。">
+  <meta property="og:description" content="社員退職・外注離脱の前に、顧客案件の停止リスクと残す資料を確認する17項目。Markdown版も無料で利用できます。">
   <meta property="og:url" content="https://snchngny.github.io/software-handover-checklist-ja/">
   <meta name="twitter:card" content="summary">
   <style>
@@ -108,8 +108,8 @@
   <header class="hero">
     <div class="wrap">
       <p class="eyebrow">無料・Markdown対応</p>
-      <h1>小規模ソフトウェアの<br>引継ぎチェックリスト</h1>
-      <p class="lead">担当者が変わっても、確認済みの動作、日常の利用手順、困った時の戻し方を追えるようにする17項目です。</p>
+      <h1>開発会社向け 顧客案件の<br>引継ぎチェックリスト</h1>
+      <p class="lead">社員退職や外注離脱の前に、顧客案件の受入条件、運用、障害対応、取消手順を経営判断者と後任が確認する17項目です。</p>
       <div class="actions">
         <a class="button primary" href="https://github.com/snchngny/software-handover-checklist-ja/blob/main/CHECKLIST.md">Markdown版を無料で使う</a>
         <a class="button secondary" href="#checklist">このページで確認する</a>
@@ -121,12 +121,12 @@
     <section aria-labelledby="usage-title">
       <h2 id="usage-title">使い方</h2>
       <ol>
-        <li>対象ソフトウェアごとにチェックリストを複製</li>
-        <li>引継ぎ元と引継ぎ先が一緒に確認</li>
+        <li>顧客案件ごとにチェックリストを複製</li>
+        <li>離脱期限と後任責任者を決めて一緒に確認</li>
         <li>分からない項目は埋めずに「未確認」と記録</li>
         <li>秘密値は書かず、正規の保管場所と取得手順だけを記録</li>
       </ol>
-      <p class="note">確認日、対象名・version・環境、引継ぎ元、引継ぎ先も最初に記録してください。</p>
+      <p class="note">確認日、顧客案件、離脱区分（社員退職・外注離脱）、期限、経営判断者、後任責任者を最初に記録してください。</p>
     </section>
 
     <section id="checklist" aria-labelledby="checklist-title">
@@ -135,9 +135,9 @@
       <article class="card">
         <h3>目的と範囲</h3>
         <ul class="checklist">
-          <li>誰が何のために使うソフトウェアか説明できる</li>
-          <li>対象機能と対象外を区別している</li>
-          <li>正本となるrepository、文書、データの場所が分かる</li>
+          <li>顧客が何のために使う案件か説明できる</li>
+          <li>顧客との契約範囲と対象外を区別している</li>
+          <li>repository、顧客向け文書、運用データの正本とアクセス責任者が分かる</li>
         </ul>
       </article>
 
@@ -175,16 +175,16 @@
         <ul class="checklist">
           <li>引継ぎ先が手順を見て主要操作を再現した</li>
           <li>不足、例外、期限付き対応を一覧にした</li>
-          <li>文書の更新責任者と次回確認日を決めた</li>
+          <li>離脱後の文書更新責任者と次回確認日を決めた</li>
         </ul>
       </article>
     </section>
 
     <section class="paid" aria-labelledby="paid-title">
-      <h2 id="paid-title">一覧だけでは引継ぎを完了できない場合</h2>
-      <p>受入条件表、確認根拠、利用手順、障害対応、取消手順を実際に記入できる日本語Markdownテンプレート5点と、架空の記入例を用意しています。</p>
+      <h2 id="paid-title">顧客案件の引継ぎを実作業に移す場合</h2>
+      <p>小規模開発会社の顧客案件に使える、受入条件、確認根拠、利用・障害対応、rollbackの日本語Markdownテンプレート5点と架空の記入例です。社員退職・外注離脱前の準備に利用できます。</p>
       <p><a class="button primary" href="https://yukilec.gumroad.com/l/software-handover-docs-ja?utm_source=github_pages&amp;utm_medium=organic&amp;utm_campaign=handover-checklist">有料テンプレート5点を見る（2,980円）</a></p>
-      <p class="note">無料版だけでも利用できます。有料版は編集用テンプレートと記入例が必要な方向けです。</p>
+      <p class="note">無料版だけでも利用できます。無料版だけでも使えます。有料版は顧客案件ごとの編集用テンプレートと記入例が必要な方向けです。</p>
     </section>
 
     <section aria-labelledby="license-title">
@@ -195,7 +195,7 @@
 
   <footer>
     <div class="wrap">
-      <p>作成: <a href="https://github.com/snchngny">snchngny</a>｜更新: 2026-09-27</p>
+      <p>作成: <a href="https://github.com/snchngny">snchngny</a>｜更新: 2026-10-01</p>
     </div>
   </footer>
 </body>
